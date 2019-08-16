@@ -1,6 +1,6 @@
           let images = [];
 
-          function loadImages() {
+          function loadImages(image) {
               console.log('getting images...');
               fetch('http://localhost:8080/42-Passion_Project_Erin/api/familySite')
                   .then((response) => {
@@ -31,6 +31,8 @@
 
                   wrapperDiv.appendChild(newDiv);
               });
+
+
 
           }
 

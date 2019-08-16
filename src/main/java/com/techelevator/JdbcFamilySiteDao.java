@@ -1,6 +1,7 @@
 package com.techelevator;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 import javax.sql.DataSource;
@@ -21,10 +22,14 @@ public class JdbcFamilySiteDao implements IFamilySiteDao {
 	public JdbcFamilySiteDao(DataSource dataSource) {
 		this.jdbcTemplate = new JdbcTemplate(dataSource);
 	}
+
+	
+	
 	
 	public List<Image> getImageList() {
-		List<Image> allImages = new ArrayList<>();
-
+		
+		List<Image> allImages = new ArrayList<Image>();
+      
 		String sqlImageSQL = "SELECT image_name, image_url, image_subject, created_date, tags, date_taken FROM images";
 		SqlRowSet results = jdbcTemplate.queryForRowSet(sqlImageSQL);
 		while (results.next()){
